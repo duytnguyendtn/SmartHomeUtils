@@ -1,0 +1,14 @@
+[Unit]
+Description=Repeatedly attempt to mount a specific SMB share
+After=network.target
+
+[Service]
+ExecStart=mount -t cifs -o rw,vers=3.0,credentials=/path/to/.credentials //hostname/remote/path/to/mount /media/localFolderToMount
+Type=simple
+Restart=on-failure
+RestartSec=1s
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
