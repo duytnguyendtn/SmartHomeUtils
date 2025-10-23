@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 ExecStart=mount -t cifs -o rw,vers=3.0,credentials=/path/to/.credentials //hostname/remote/path/to/mount /media/localFolderToMount
-Type=simple
+Type=oneshot
 Restart=on-failure
 RestartSec=2s
 StandardOutput=journal
